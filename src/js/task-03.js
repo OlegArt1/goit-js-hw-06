@@ -13,5 +13,15 @@ const images = [
   },
 ];
 const gallery = document.querySelector(".gallery");
-const markup = images.map((technology) => `<li class="item"><img url='${technology.url}' width='150' height='150' alt='${technology.alt}'/></li>`).join("");
-gallery.insertAdjacentHTML("beforeend", markup);
+const markup = images.map((technology) => `<li class="item"><img src='${technology.url}' width='350' height='350' alt='${technology.alt}'/></li>`).join("");
+addStyles();
+function addStyles()
+{
+  gallery.insertAdjacentHTML("beforeend", markup);
+  gallery.style.marginTop = "150px";
+  gallery.style.display = "flex";
+  gallery.style.alignItems = "center";
+  gallery.style.justifyContent = "center";
+  gallery.style.flexDirection = "row";
+  gallery.style.gap = "50px";
+}
