@@ -1,29 +1,36 @@
-const textInput = document.querySelector("#validation-input");
 
-textInput.addEventListener("blur", () =>
+const inputText = document.querySelector("#validation-input");
+
+inputText.style.marginTop = '20px';
+
+inputText.style.marginLeft = '20px';
+
+inputText.addEventListener("blur", () =>
 {
-    const textValidation = textInput.value;
+    const textValidation = inputText.value;
 
-    if (textValidation.indexOf(textInput.getAttribute("data-length")) !== -1 || textValidation.length === Number(textInput.getAttribute("data-length")))
+    if (textValidation.indexOf(inputText.getAttribute("data-length")) !== -1 ||
+    
+        textValidation.length === Number(inputText.getAttribute("data-length")))
     {
-        textInput.classList.add("valid");
+        inputText.classList.add("valid");
 
-        if (textInput.classList.contains("invalid"))
+        if (inputText.classList.contains("invalid"))
         {
-            textInput.classList.replace("invalid", "valid");
+            inputText.classList.replace("invalid", "valid");
         }
     }
-    else if (textInput.value == "")
+    else if (inputText.value == "")
     {
-        textInput.setAttribute("placeholder", "Error! Empty line");
+        inputText.setAttribute("placeholder", "Error! Empty line!");
     }
     else
     {
-        textInput.classList.add("invalid");
+        inputText.classList.add("invalid");
 
-        if (textInput.classList.contains("valid"))
+        if (inputText.classList.contains("valid"))
         {
-            textInput.classList.replace("valid", "invalid");
+            inputText.classList.replace("valid", "invalid");
         }
     }
 });
